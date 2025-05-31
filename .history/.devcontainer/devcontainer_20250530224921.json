@@ -1,0 +1,33 @@
+{
+    "name": "Loja de Jogos do Seu Manoel",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "service": "service_lojadejogos",
+    "workspaceFolder": "/workspace/lojadejogos",
+    "runServices": ["service_lojadejogos"],
+    "shutdownAction": "stopCompose",
+    "init": true,
+    "overrideCommand": false,
+    "customizations": {
+        "vscode": {
+        "settings": {
+            "terminal.integrated.defaultProfile.linux": "bash",
+            "java.jdt.ls.java.home": "/usr/local/openjdk-17"
+        },
+        "extensions": [
+            "vscjava.vscode-java-pack",
+            "vmware.vscode-spring-boot",
+            "vmware.vscode-boot-dev-pack",
+            "ms-azuretools.vscode-docker",
+            "vscjava.vscode-maven",
+            "42Crunch.vscode-openapi",
+            "redhat.vscode-yaml",
+            "ms-vscode-remote.remote-containers",
+            "eamodio.gitlens"
+        ]
+        }
+    },
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y curl git unzip && mvn clean install || true",
+    "forwardPorts": [8080, 5433],
+    "remoteUser": "vscode"
+
+}

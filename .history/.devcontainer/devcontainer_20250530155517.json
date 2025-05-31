@@ -1,0 +1,4 @@
+{
+    "name": "Loja de Jogos do Seu Manoel",
+    "dockerComposeFile": ["../compose.yml"],
+}

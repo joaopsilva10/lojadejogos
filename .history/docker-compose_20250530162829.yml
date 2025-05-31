@@ -1,0 +1,16 @@
+services:
+  service_lojadejogos:
+    container_name: container_lojadejogos
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - "5432:8080"
+    networks:
+      - lojadejogos_network
+    volumes:
+      - /home/patri/workspace/lojadejogos:/workspace/lojadejogos
+
+networks:
+  lojadejogos_network:
+    driver: bridge
