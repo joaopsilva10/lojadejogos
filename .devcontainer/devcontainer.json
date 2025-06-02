@@ -22,7 +22,8 @@
             "42Crunch.vscode-openapi",
             "redhat.vscode-yaml",
             "ms-vscode-remote.remote-containers",
-            "eamodio.gitlens"
+            "eamodio.gitlens",
+            "mikeburgh.xml-format"
         ]
         }
     },

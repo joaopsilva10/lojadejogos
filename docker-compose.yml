@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: .devcontainer/Dockerfile
     ports:
-      - "5433:8080"
+      - "8080:8080"
     networks:
       - lojadejogos_network
     volumes:
