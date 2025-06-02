@@ -2,7 +2,7 @@
     "name": "Loja de Jogos do Seu Manoel",
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "service_lojadejogos",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/workspace/lojadejogos",
     "runServices": ["service_lojadejogos"],
     "shutdownAction": "stopCompose",
     "init": true,

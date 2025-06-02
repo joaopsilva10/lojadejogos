@@ -9,7 +9,7 @@ services:
     networks:
       - lojadejogos_network
     volumes:
-      - .:/workspace/
+      - .:/workspace/lojadejogos
 
 networks:
   lojadejogos_network:

@@ -27,10 +27,10 @@ RUN groupadd --gid $USER_GID $USERNAME \
 RUN echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Cria o diretório da aplicação e ajusta permissões
-RUN mkdir -p /workspace && chown -R $USERNAME:$USERNAME /workspace
+RUN mkdir -p /workspace/lojadejogos && chown -R $USERNAME:$USERNAME /workspace
 
 # Define diretório de trabalho
-WORKDIR /workspace
+WORKDIR /workspace/lojadejogos
 
 # Define variáveis de ambiente
 ENV JAVA_HOME=/usr/local/openjdk-17
