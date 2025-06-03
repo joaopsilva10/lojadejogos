@@ -1,13 +1,53 @@
-# lojajogos
-Loja de Jogos do Seu Manoel com API Web utilizando Java com Spring Boot
+# Loja de Jogos - API de Embalagem
 
-# INSTRUÇÕES DE USO DA API na atividade 1, SIGA OS PASSOS ABAIXO:
+Projeto Java Spring Boot que simula o sistema de pedidos da loja de jogos do Seu Manoel, com foco na **automatização do processo de embalagem** dos pedidos com base nas dimensões dos produtos.
 
---- Ao iniciar a aplicação será necessário cria um usuário para realizar o uso da API.
-a criação do usuário poderá ser realizada pelo swagger com os seguintes dados:
+---
+## Desenvolvido por
+João Patrick
 
-** endpoint: http://localhost:8080/api/admin/cadastrar-usuario
-** json de entrada:
+## Tecnologias Utilizadas
+
+- Java 17+
+- Spring Boot
+- Spring Security
+- Banco de dados H2
+- Swagger (OpenAPI)
+- Docker
+
+---
+## Executando com Docker
+docker build -t lojadejogos .
+docker run -p 8080:8080 lojadejogos
+
+
+## Documentação Interativa (Swagger)
+**Acesse:**
+http://localhost:8080/swagger-ui/index.html
+
+
+## Funcionalidade Principal do EXERCÍCIO 1 - EMPACOTAMENTO
+
+A API é responsável por:
+- Receber pedidos com uma lista de produtos e suas dimensões
+- Calcular o melhor encaixe possível dos produtos em caixas de papelão
+- Retornar a alocação ideal para cada pedido e caixa
+
+Caixas disponíveis:
+- **Caixa 1:** 30 x 40 x 80
+- **Caixa 2:** 80 x 50 x 40
+- **Caixa 3:** 50 x 80 x 60
+
+---
+
+## Como Usar a API (Atividade 1)
+
+### 1 Criar um usuário
+
+**Acesse via Swagger:**
+POST http://localhost:8080/api/admin/cadastrar-usuario
+
+**JSON de entrada:**
 {
   "username": "123",
   "password": "123",
@@ -16,53 +56,54 @@ a criação do usuário poderá ser realizada pelo swagger com os seguintes dado
   "status": "ATIVO"
 }
 
-**saida:
+**Resposta esperada:**
 Cadastro realizado!
 
+### 2 Realizar login e obtem token
 
---- Logo após a criação do usuário, será necessário realizar o login, que poderá ser realizada pelo swagger com os seguintes dados:
-** endpoint: http://localhost:8080/api/auth/login
-** json de entrada:
+**Acesse via Swagger:**
+POST http://localhost:8080/api/auth/login
+
+**JSON de entrada:**
 {
   "username": "123",
   "password": "123"
 }
 
-**json de saida:
+**Resposta esperada:**
 {
-  "accessToken": "token"
+  "accessToken": "seu_token_jwt_aqui"
 }
 
---- Em seguinda, copie o token que foi gerado pelo endpoint de login, e use-o para se autenticar no sistemas, 
-através do botão Authorize do swagger
+### 3 Autenticar-se no Swagger
+Para isso, use o próprio botão de Authorize do SWAGGER e cole o accessToken que você copiou.
 
---- Dessa forma, você poderá utilizar o restante das funcionalidades da API
+### 4 Realizar teste de embalagem
+POST http://localhost:8080/api/admin/embalagem
 
---- Para realizar o teste de embalagem, use:
-
-** endpoint: http://localhost:8080/api/admin/embalagem
-** json de entrada: 
+**JSON de entrada:**
 [
   {
     "produtos": [
       {
-        "nome": "Jogo A",
+        "nome": "Controle PS5",
         "altura": 10,
-        "largura": 10,
-        "comprimento": 10
+        "largura": 15,
+        "comprimento": 20
       },
       {
-        "nome": "Jogo B",
-        "altura": 20,
-        "largura": 20,
-        "comprimento": 5
+        "nome": "Headset Gamer",
+        "altura": 25,
+        "largura": 30,
+        "comprimento": 20
       }
     ]
   }
 ]
 
-**json de saida:
-{"PEDIDO_ID_1": [
+**Resposta esperada:**
+{
+  "PEDIDO_ID_1": [
     {
       "Caixa 1": [
         {
@@ -87,5 +128,3 @@ através do botão Authorize do swagger
     }
   ]
 }
-
-# INSTRUÇÕES DE USO DA API na atividade 2, SIGA OS PASSOS ABAIXO:
