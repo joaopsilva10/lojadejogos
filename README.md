@@ -1,6 +1,4 @@
-# Loja de Jogos - API de Embalagem
-
-Projeto Java Spring Boot que simula o sistema de pedidos da loja de jogos do Seu Manoel, com foco na **automatização do processo de embalagem** dos pedidos com base nas dimensões dos produtos.
+# Avaliação Técnica solicitado pela empresa L2
 
 ---
 ## Desenvolvido por
@@ -17,16 +15,18 @@ João Patrick
 
 ---
 ## Executando com Docker
-docker build -t lojadejogos .
+docker build -t lojadejogos . <br>
 docker run -p 8080:8080 lojadejogos
-
 
 ## Documentação Interativa (Swagger)
 **Acesse:**
 http://localhost:8080/swagger-ui/index.html
 
-
 ## Funcionalidade Principal do EXERCÍCIO 1 - EMPACOTAMENTO
+
+## Loja de Jogos - API de Embalagem
+
+Projeto Java Spring Boot que simula o sistema de pedidos da loja de jogos do Seu Manoel, com foco na **automatização do processo de embalagem** dos pedidos com base nas dimensões dos produtos.<br>
 
 A API é responsável por:
 - Receber pedidos com uma lista de produtos e suas dimensões
