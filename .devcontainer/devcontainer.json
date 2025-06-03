@@ -28,7 +28,10 @@
         }
     },
     "postCreateCommand": "sudo apt-get update && sudo apt-get install -y curl git unzip && mvn clean install || true",
-    "forwardPorts": [8080, 5433],
+    "forwardPorts": [8080],
+    "remoteEnv": {
+        "SPRING_DATASOURCE_URL": "jdbc:h2:mem:lojadejogos"
+    },
     "remoteUser": "vscode"
 
 }
